@@ -31,4 +31,22 @@ public class Book {
         }
         this.yearOfPublication = yearOfPublication;
     }
+
+    @Override
+    public String toString() {
+        return "Название: " + title + "; Автор: " + author.toString() + "; Год публикации: " + yearOfPublication;
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        if (this.getClass() != other.getClass()) {
+            return false;
+        }
+        return toString().equals(((Book) other).toString());
+    }
+
+    @Override
+    public int hashCode() {
+        return java.util.Objects.hash(toString());
+    }
 }
