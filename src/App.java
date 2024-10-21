@@ -7,6 +7,10 @@ public class App {
 
         iRobot.setYearOfPublication(2000);
         System.out.println(iRobot.getYearOfPublication());
+        System.out.println(oneHundredYearsAhead);
+        System.out.println(isaacAsimov);
+        System.out.println(oneHundredYearsAhead.hashCode());
+        System.out.println(isaacAsimov.hashCode());
 
     }
 }
