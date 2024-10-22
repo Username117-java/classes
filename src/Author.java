@@ -23,14 +23,17 @@ public class Author {
 
     @Override
     public boolean equals(Object other) {
+        if (other == this) {
+            return true;
+        }
         if (this.getClass() != other.getClass()) {
             return false;
         }
-        return toString().equals(((Author) other).toString());
+        return (this.firstName.equals(((Author) other).firstName) && this.lastName.equals(((Author) other).lastName));
     }
 
     @Override
     public int hashCode() {
-        return java.util.Objects.hash(firstName + " " + lastName);
+        return java.util.Objects.hash(firstName, lastName);
     }
 }

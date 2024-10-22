@@ -24,7 +24,7 @@ public class Book {
         return yearOfPublication;
     }
 
-    public void setYearOfPublication (int yearOfPublication) {
+    public void setYearOfPublication(int yearOfPublication) {
         if (yearOfPublication < 1900 || yearOfPublication > LocalDate.now().getYear()) {
             System.out.println("Invalid year of publication:" + yearOfPublication);
             return;
@@ -39,14 +39,17 @@ public class Book {
 
     @Override
     public boolean equals(Object other) {
+        if (other == this) {
+            return true;
+        }
         if (this.getClass() != other.getClass()) {
             return false;
         }
-        return toString().equals(((Book) other).toString());
+        return (this.title.equals(((Book) other).title) && this.author.equals(((Book) other).author) && this.yearOfPublication == ((Book) other).yearOfPublication);
     }
 
     @Override
     public int hashCode() {
-        return java.util.Objects.hash(toString());
+        return java.util.Objects.hash(title, author, yearOfPublication);
     }
 }
